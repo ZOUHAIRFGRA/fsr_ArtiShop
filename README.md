@@ -59,5 +59,5 @@ artishop/
 └── README.md
 ```
 
-Le panier est gardé en mémoire : il est vidé à chaque redémarrage du serveur.
+Le panier est conservé en mémoire et se vide à chaque redémarrage du serveur.
 recette (q,a)
