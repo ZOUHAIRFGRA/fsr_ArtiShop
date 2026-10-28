@@ -1,0 +1,228 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\ifdefined\pdfglyphtounicode
+\input{glyphtounicode}
+\pdfgentounicode=1
+\fi
+\usepackage[top=23mm,bottom=22mm,left=22mm,right=22mm,headheight=20pt]{geometry}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\definecolor{Navy}{HTML}{163047}
+\definecolor{Teal}{HTML}{137D80}
+\definecolor{Accent}{HTML}{C46C3D}
+\definecolor{Muted}{HTML}{5B6B78}
+\definecolor{Light}{HTML}{F1F6F7}
+\definecolor{Border}{HTML}{D6E3E6}
+\hypersetup{colorlinks=true,urlcolor=Teal,linkcolor=Teal,pdftitle={ArtiShop - Compte rendu TP1 Git},pdfauthor={Zouhair Fouiguira, Yassine Belhamadia, Zainab Achak, Wiam Bzioui}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\linespread{1.035}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\small\bfseries\color{Navy}ARTISHOP}
+\fancyhead[R]{\sffamily\footnotesize\color{Muted}Compte rendu\enspace /\enspace TP1 Git}
+\fancyfoot[L]{\sffamily\scriptsize\color{Muted}SYNCHRONISATION ET BRANCHES AVEC GIT}
+\fancyfoot[R]{\sffamily\small\color{Teal}\thepage\enspace/\enspace\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{Border}\leaders\hrule height \headrulewidth\hfill}}
+\titleformat{\section}{\sffamily\large\bfseries\color{Navy}}{}{0pt}{}[\vspace{3pt}{\color{Border}\titlerule}]
+\titlespacing*{\section}{0pt}{14pt}{8pt}
+\titleformat{\subsubsection}{\sffamily\normalsize\bfseries\color{Teal}}{}{0pt}{}
+\titlespacing*{\subsubsection}{0pt}{10pt}{4pt}
+\newcommand{\question}[1]{\subsubsection*{#1}}
+\setlist[itemize]{leftmargin=4mm,itemsep=3pt,topsep=4pt,label=\textcolor{Teal}{\textbullet}}
+\fvset{fontfamily=tt,fontsize=\small}
+\begin{document}
+\thispagestyle{empty}
+{\sffamily\small\bfseries\color{Teal}COURS DEVOPS\hfill PROJET FIL ROUGE}
+\vspace{18mm}
+
+{\sffamily\fontsize{15}{18}\selectfont\color{Muted}COMPTE RENDU}
+\vspace{4mm}
+
+{\sffamily\fontsize{40}{44}\selectfont\bfseries\color{Navy}ArtiShop}
+\vspace{4mm}
+
+{\sffamily\fontsize{24}{29}\selectfont\bfseries\color{Navy}TP1\enspace\textcolor{Accent}{/}\enspace Git}
+\vspace{5mm}
+
+{\sffamily\Large\color{Muted}Synchronisation et branches avec Git}
+\vspace{7mm}
+
+{\color{Teal}\rule{34mm}{2pt}}\hspace{2mm}{\color{Border}\rule{127mm}{.5pt}}
+\vspace{13mm}
+
+{\sffamily\small\bfseries\color{Teal}ÉQUIPE}
+\vspace{4mm}
+
+\renewcommand{\arraystretch}{1.65}
+\begin{tabularx}{\linewidth}{@{}X X@{}}
+\sffamily\large Zouhair Fouiguira & \sffamily\large Yassine Belhamadia \\
+\sffamily\large Zainab Achak & \sffamily\large Wiam Bzioui
+\end{tabularx}
+\vspace{11mm}
+
+\begin{tcolorbox}[colback=Light,colframe=Border,boxrule=.5pt,arc=0pt,left=5mm,right=5mm,top=4mm,bottom=4mm]
+{\sffamily\small\bfseries\color{Teal}DÉPÔT DE L'ÉQUIPE}\\[5pt]
+\url{https://github.com/ZOUHAIRFGRA/fsr_ArtiShop}
+\end{tcolorbox}
+\vfill
+{\sffamily\small\bfseries\color{Navy}CONTENU DU LIVRABLE}
+\vspace{3mm}
+
+{\color{Muted}Réponses aux questions et réflexions du TP.\\[3pt]
+Vérifications techniques et références des commits.\\[3pt]
+Graphe final intégral du dépôt.}
+\vspace{8mm}
+
+{\sffamily\scriptsize\color{Muted}ARTISHOP\hfill TP1\enspace /\enspace COMPTE RENDU}
+\newpage
+\section*{Exercice 1 -- Remotes}
+\question{Q1.1 -- Où les remotes sont-ils enregistrés ?}
+Dans \texttt{.git/config}, sous les sections \texttt{[remote "origin"]} et \texttt{[remote "upstream"]}. Elles contiennent notamment l'URL et les règles de récupération des références.
+
+\question{Q1.2 -- Pourquoi le push upstream est-il refusé ?}
+Le fork donne des droits sur le dépôt de l'équipe, pas sur celui de l'enseignante. Sans autorisation d'écriture sur upstream, le serveur refuse le push. Les contributions sont publiées sur origin.
+
+\textbf{Réflexion.} origin désigne le fork, upstream le dépôt de l'enseignante. Un remote est un nom associé à une URL ; ajouter \texttt{backup} avec la même URL ne crée pas une copie supplémentaire du dépôt. Ce remote temporaire peut ensuite être supprimé avec \texttt{git remote remove backup}.
+
+\section*{Exercice 2 -- Clones}
+\question{Q2.1 -- Quel remote est créé automatiquement ?}
+\texttt{git clone} crée origin, associé à l'URL clonée. upstream n'apparaît pas automatiquement : chaque clone doit le configurer séparément s'il souhaite suivre le dépôt de l'enseignante.
+
+\section*{Exercice 3 -- Fetch et pull}
+\question{Q3.1 -- À quelles opérations équivaut git pull ?}
+Avec une stratégie de fusion : \texttt{git fetch}, puis \texttt{git merge} de la branche suivie. Avec \texttt{--rebase}, la seconde étape est un rebase.
+
+\question{Q3.2 -- Pourquoi fetch est-il qualifié de sûr ?}
+fetch télécharge les objets et actualise les références distantes sans fusionner dans la branche courante ni modifier les fichiers de travail. On peut examiner les changements avant de les intégrer.
+
+\subsubsection*{Observations après fetch}
+Après un fetch, \texttt{git status} peut annoncer une branche en retard. Les commits reçus mais non intégrés s'affichent avec :
+\begin{tcolorbox}[colback=Light,colframe=Border,boxrule=.4pt,arc=0pt,left=3mm,right=3mm,top=2mm,bottom=2mm]
+\begin{Verbatim}[fontsize=\small]
+git log main..origin/main --oneline
+\end{Verbatim}
+\end{tcolorbox}
+Le README local reste inchangé. La recherche de la section Recette ne la trouve donc pas si elle n'était pas déjà présente. Un merge ou un pull intègre ensuite ces commits.
+
+\newpage
+\section*{Exercice 4 -- Branches et HEAD détachée}
+\texttt{git branch} affiche les branches locales. \texttt{git branch -a} affiche aussi les références de suivi distant.
+
+\begin{itemize}
+\item \texttt{git switch origin/feature/livraison} attend une branche locale et refuse normalement cette référence distante : \texttt{a branch is expected, got remote branch}.
+\item \texttt{git checkout origin/feature/livraison} place HEAD directement sur un commit : HEAD est détachée.
+\item \texttt{git switch feature/livraison} sélectionne la branche locale ou peut la créer par suivi d'une branche distante non ambiguë.
+\end{itemize}
+
+\textbf{Risque.} Des commits faits en HEAD détachée ne sont pas attachés à une branche. Après un changement de position, ils peuvent devenir difficiles à retrouver puis être collectés. Créer une branche avant de quitter cet état les conserve.
+
+\section*{Exercice 5 -- Fusion fast-forward}
+\question{Q5.1 -- Pourquoi aucun commit de fusion n'est-il nécessaire ?}
+Si la branche cible est ancêtre de la branche intégrée, Git avance son pointeur jusqu'au commit descendant. Il n'y a pas deux histoires divergentes à combiner : c'est un fast-forward. C'est la condition attendue aux étapes 2 et 6 de cet exercice.
+
+\section*{Exercice 6 -- Fusion à trois voies}
+\question{Q6.1 -- Quels sont les trois commits utilisés ?}
+Pour la fusion livraison corrigée \texttt{09d2a94} :
+\begin{itemize}
+\item base commune : \texttt{c0e265d} ;
+\item ancien sommet de main : \texttt{a09b892} ;
+\item sommet livraison : \texttt{080a49c}.
+\end{itemize}
+Vérification après suppression de la branche livraison :
+\begin{tcolorbox}[colback=Light,colframe=Border,boxrule=.4pt,arc=0pt,left=3mm,right=3mm,top=2mm,bottom=2mm]
+\begin{Verbatim}[fontsize=\small]
+git merge-base 09d2a94^1 09d2a94^2
+git show --no-patch --format="%H %P" 09d2a94
+\end{Verbatim}
+\end{tcolorbox}
+Avant la fusion, \texttt{git merge-base main feature/livraison} donnait la base commune. Après fusion, cette commande donnait le sommet livraison, devenu ancêtre de main.
+
+\question{Q6.2 -- Pourquoi deux modifications du même fichier peuvent-elles fusionner ?}
+Git compare les modifications à leur base commune. Des changements dans des zones distinctes du fichier peuvent être combinés automatiquement : l'ajout de livraison après \texttt{/health} et les changements du panier pour les promos ne sont pas nécessairement concurrents.
+
+Dans ce dépôt, la fusion livraison a néanmoins nécessité une résolution manuelle. Le résultat corrigé contient une seule route livraison et une seule déclaration correspondante ; il ne faut pas décrire cette fusion réelle comme entièrement automatique.
+
+\newpage
+\section*{Exercice 7 -- Conflit RAMADAN20}
+Les branches modifient la même ligne de \texttt{src/data/promos.js} à partir d'une base commune : 25\,\% côté marketing, 20\,\% côté PO. Git ne peut pas décider quelle valeur fonctionnelle garder et signale un conflit.
+
+\texttt{git status} indique le fichier non fusionné. Les marqueurs \texttt{<<<<<<<}, \texttt{=======} et \texttt{>>>>>>>} délimitent les versions. La résolution conserve 20\,\%, supprime les marqueurs, puis se termine par les tests, \texttt{git add} et \texttt{git commit}. La fusion résultante est \texttt{b80adee}.
+
+\question{Q7.1 -- Pourquoi un fast-forward ne produit-il jamais de conflit de fusion ?}
+Il déplace un pointeur vers un descendant existant, sans combiner deux versions divergentes. Des modifications locales non commitées peuvent empêcher l'opération, mais il ne s'agit pas d'un conflit entre deux historiques.
+
+\textbf{Annulation.} \texttt{git merge --abort} annule une fusion en cours. Il faut conserver un état de travail propre avant la fusion pour faciliter le retour à l'état initial.
+
+\section*{Exercice 8 -- Suppression des branches}
+\texttt{git branch -d} supprime une branche locale intégrée ; \texttt{git push origin --delete nom} supprime la branche sur le fork. Cela ne supprime ni les commits encore accessibles depuis main, ni la branche homonyme chez upstream.
+
+Les références de suivi distant des autres clones peuvent subsister jusqu'à \texttt{git fetch --prune origin}. Les branches \texttt{feature/promo} et \texttt{feature/livraison} existent toujours chez upstream, comme le confirme \texttt{git ls-remote --heads upstream}. La branche \texttt{feature/avis} correspond au bonus ultérieur.
+
+\section*{Exercice 9 -- Pull avec rebase}
+\question{Q9.1 -- Qu'aurait donné git pull --no-rebase ?}
+Avec deux historiques divergents, il aurait effectué un fetch puis une fusion, créant un commit de merge. Le rebase rejoue le commit local après le commit distant et conserve une suite linéaire pour ces changements.
+
+\question{Q9.2 -- Quelle est la règle d'or du rebase ?}
+Ne pas rebaser sans coordination des commits publiés sur lesquels d'autres personnes ont fondé leur travail. Rejouer un commit local non publié évite de réécrire l'histoire utilisée par les autres.
+
+\newpage
+\section*{Exercice 9 -- Observation du refus}
+Le refus de push non-fast-forward et la séquence pull/rebase/push ont été reproduits avec un dépôt distant local. Les commits résultants sont publiés sur le fork : correction README \texttt{8acfdc0}, puis couleur \texttt{1be7e97}. La couleur principale est \texttt{\#1f6f78}.
+
+Le serveur refuse le premier push car il contient un commit absent du clone. Après récupération, le rebase place la correction distante avant le commit local ; le push devient alors un fast-forward.
+
+\section*{Exercice 10 -- Synchronisation upstream}
+\begin{itemize}
+\item \texttt{git log main..upstream/main --oneline} : commits d'upstream/main absents de main.
+\item \texttt{git log upstream/main..main --oneline} : commits de main absents d'upstream/main.
+\end{itemize}
+
+Un fetch réussi doit précéder l'interprétation de ces listes. La mise à jour \texttt{c923300} a été intégrée par la fusion \texttt{b9c554e}. Après intégration, la première liste est vide.
+
+\textbf{Sync fork.} L'action Update branch de GitHub intègre les changements du dépôt d'origine dans le fork. L'équivalent usuel est : fetch upstream, sélection de main, merge upstream/main, puis push origin main. Une option qui abandonne les commits propres au fork ne correspond pas à cette intégration.
+
+\section*{Exercice 11 -- Tags et push forcé}
+\textbf{Publication d'un tag.} Dans la configuration usuelle, un simple push de branche ne publie pas un nouveau tag annoté. La commande \texttt{git push origin v1.1.0} publie ce tag ; \texttt{git ls-remote --tags origin} permet de le vérifier. Le tag annoté possède son propre objet et une référence déréférencée vers son commit cible, \texttt{2abb834}.
+
+\question{Q11.1 -- Pourquoi force-with-lease plutôt que force ?}
+\texttt{--force-with-lease} vérifie que la référence distante correspond à la valeur attendue avant de la remplacer. Il refuse donc l'opération si un changement distant inattendu est détecté. \texttt{--force} n'offre pas cette protection.
+
+On ne force pas main, ni les branches partagées ou protégées. L'amend et le push forcé sont réservés ici à une branche personnelle. La démonstration du refus après amend et de la réussite avec lease a été effectuée sur le dépôt distant local, avant publication de la branche corrigée \texttt{feature/avis}.
+
+\section*{Vérifications}
+\begin{itemize}
+\item \texttt{npm test} : 6 tests réussis.
+\item Livraison : Casablanca 30, Rabat 35, Marrakech 40 et Fes 40 MAD ; ville inconnue : HTTP 404.
+\item Promos : BIENVENUE10 à 10\,\%, RAMADAN20 à 20\,\%.
+\item Le PDF de l'énoncé reste non suivi ; le document de remise est fourni séparément.
+\end{itemize}
+
+\newpage
+\section*{Graphe final du dépôt}
+Commande exécutée depuis main :
+\begin{tcolorbox}[colback=Light,colframe=Border,boxrule=.4pt,arc=0pt,left=3mm,right=3mm,top=2mm,bottom=2mm]
+\begin{Verbatim}[fontsize=\small]
+git log --oneline --graph --all --decorate
+\end{Verbatim}
+\end{tcolorbox}
+Le fichier \texttt{graphe-git.txt} joint contient la sortie intégrale, sans retrait de commits.
+\begin{tcolorbox}[colback=Light,colframe=Border,boxrule=.4pt,arc=0pt,left=3mm,right=3mm,top=3mm,bottom=3mm]
+\begingroup
+\setlength{\parskip}{0pt}
+\VerbatimInput[fontsize=\footnotesize]{graphe-git.txt}
+\endgroup
+\end{tcolorbox}
+\end{document}
