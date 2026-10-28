@@ -60,4 +60,10 @@ artishop/
 ```
 
 Le panier est conservé en mémoire et se vide à chaque redémarrage du serveur.
-recette (q,a)
+
+## Recette (QA)
+
+- Lancer `npm test` : les 6 tests doivent réussir.
+- Vérifier `/health` et le catalogue des produits.
+- Vérifier `/api/delivery?city=Rabat` : frais de 35 MAD.
+- Vérifier le panier et le code promo `RAMADAN20` : remise de 20 %.
