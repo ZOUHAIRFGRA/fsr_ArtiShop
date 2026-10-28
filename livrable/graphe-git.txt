@@ -1,0 +1,29 @@
+* 8482441 (origin/feature/avis, feature/avis) docs: retirer le rapport de la branche avis
+* f10cc53 docs: ajout des avis clients
+| * fc74b74 (HEAD -> main, origin/main, origin/HEAD) docs: retirer le rapport du depot
+| * deb453f docs(tp1): confirmer la publication et les verifications distantes
+|/  
+* 2abb834 (tag: v1.1.0) docs(tp1): reponses et bilan des exercices Git
+*   b9c554e Merge upstream/main: integrer la recette QA
+|\  
+| * c923300 (upstream/main) ReadMe Update
+* | 1be7e97 style: changer la couleur principale en bleu canard
+* | 8acfdc0 docs: clarifier la conservation du panier en memoire
+* |   b80adee Merge fix/taux-ramadan: conserver le taux PO de 20 %
+|\ \  
+| * | f6d266d fix(promo): taux Ramadan annonce par le marketing
+* | | b5bbf8a docs(promo): preciser le taux Ramadan valide par la PO
+|/ /  
+* |   09d2a94 Merge branch 'feature/livraison'
+|\ \  
+| * | 080a49c feat(livraison): frais de livraison par ville
+| * | 5333466 (upstream/feature/livraison) feat(livraison): frais de livraison par ville
+| |/  
+* | a09b892 feat(promo): codes promo et poussez. BIENVENUE10 et RAMADAN20
+* | 9a4c713 modif : readme
+* | c442feb add livraison frais
+|/  
+*   c0e265d (upstream/feature/promo) Fusion avec le dépôt GitHub initial
+|\  
+| * 865adb5 Initial commit
+* add0021 premier commit Artishop
