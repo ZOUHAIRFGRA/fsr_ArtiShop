@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const products = require("./data/products");
+const deliveryFees = require("./data/delivery");
 
 // Crée une nouvelle application avec un panier vide.
 // Une fonction plutôt qu'une variable globale : chaque test part d'un état propre.
@@ -15,7 +16,16 @@ function createApp() {
   app.get("/health", (req, res) => {
     res.json({ status: "ok" });
   });
-	  // Frais de livraison : /api/delivery?city=Rabat
+
+  // Frais de livraison : /api/delivery?city=Rabat
+  app.get("/api/delivery", (req, res) => {
+    const fee = deliveryFees[req.query.city];
+    if (fee === undefined) {
+      return res.status(404).json({ error: "Ville non desservie" });
+    }
+    res.json({ city: req.query.city, fee });
+  });
+  // Frais de livraison : /api/delivery?city=Rabat
   const deliveryFees = require("./data/delivery");
   app.get("/api/delivery", (req, res) => {
     const fee = deliveryFees[req.query.city];
@@ -25,12 +35,13 @@ function createApp() {
     res.json({ city: req.query.city, fee });
   });
 
-
   // Catalogue, avec filtre optionnel par catégorie : /api/products?category=Poterie
   app.get("/api/products", (req, res) => {
     const { category } = req.query;
     const result = category
-      ? products.filter((p) => p.category.toLowerCase() === String(category).toLowerCase())
+      ? products.filter(
+          (p) => p.category.toLowerCase() === String(category).toLowerCase(),
+        )
       : products;
     res.json(result);
   });
@@ -53,7 +64,7 @@ function createApp() {
         name: product.name,
         unitPrice: product.price,
         quantity,
-        subtotal: product.price * quantity
+        subtotal: product.price * quantity,
       };
     });
     const total = items.reduce((sum, item) => sum + item.subtotal, 0);
@@ -67,14 +78,17 @@ function createApp() {
   // Ajouter un produit au panier : { "productId": 1, "quantity": 2 }
   app.post("/api/cart", (req, res) => {
     const productId = Number(req.body.productId);
-    const quantity = req.body.quantity === undefined ? 1 : Number(req.body.quantity);
+    const quantity =
+      req.body.quantity === undefined ? 1 : Number(req.body.quantity);
 
     const product = products.find((p) => p.id === productId);
     if (!product) {
       return res.status(404).json({ error: "Produit introuvable" });
     }
     if (!Number.isInteger(quantity) || quantity < 1) {
-      return res.status(400).json({ error: "La quantité doit être un entier positif" });
+      return res
+        .status(400)
+        .json({ error: "La quantité doit être un entier positif" });
     }
 
     const newQuantity = (cart.get(productId) || 0) + quantity;
@@ -90,7 +104,9 @@ function createApp() {
   app.delete("/api/cart/:productId", (req, res) => {
     const productId = Number(req.params.productId);
     if (!cart.has(productId)) {
-      return res.status(404).json({ error: "Ce produit n'est pas dans le panier" });
+      return res
+        .status(404)
+        .json({ error: "Ce produit n'est pas dans le panier" });
     }
     cart.delete(productId);
     res.json(cartSummary());
