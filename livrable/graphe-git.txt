@@ -1,4 +1,5 @@
-* 153c88f (HEAD -> main, origin/main, origin/HEAD) docs(tp1): publier le livrable PDF et ses sources LaTeX
+* fb6ea4b (HEAD -> main, origin/main, origin/HEAD) docs(tp1): actualiser les references du livrable
+* 153c88f docs(tp1): publier le livrable PDF et ses sources LaTeX
 * 72dc70c docs: retirer le rapport du depot
 * 91010c5 docs(tp1): confirmer la publication et les verifications distantes
 | * d83f1b9 (origin/feature/avis, feature/avis) docs: retirer le rapport de la branche avis
