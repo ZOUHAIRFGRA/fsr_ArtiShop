@@ -159,7 +159,7 @@ Dans ce dépôt, la fusion livraison a néanmoins nécessité une résolution ma
 \section*{Exercice 7 -- Conflit RAMADAN20}
 Les branches modifient la même ligne de \texttt{src/data/promos.js} à partir d'une base commune : 25\,\% côté marketing, 20\,\% côté PO. Git ne peut pas décider quelle valeur fonctionnelle garder et signale un conflit.
 
-\texttt{git status} indique le fichier non fusionné. Les marqueurs \texttt{<<<<<<<}, \texttt{=======} et \texttt{>>>>>>>} délimitent les versions. La résolution conserve 20\,\%, supprime les marqueurs, puis se termine par les tests, \texttt{git add} et \texttt{git commit}. La fusion résultante est \texttt{b80adee}.
+\texttt{git status} indique le fichier non fusionné. Les marqueurs \texttt{<<<<<<<}, \texttt{=======} et \texttt{>>>>>>>} délimitent les versions. La résolution conserve 20\,\%, supprime les marqueurs, puis se termine par les tests, \texttt{git add} et \texttt{git commit}. La fusion résultante est \texttt{8edf2d4}.
 
 \question{Q7.1 -- Pourquoi un fast-forward ne produit-il jamais de conflit de fusion ?}
 Il déplace un pointeur vers un descendant existant, sans combiner deux versions divergentes. Des modifications locales non commitées peuvent empêcher l'opération, mais il ne s'agit pas d'un conflit entre deux historiques.
@@ -180,7 +180,7 @@ Ne pas rebaser sans coordination des commits publiés sur lesquels d'autres pers
 
 \newpage
 \section*{Exercice 9 -- Observation du refus}
-Le refus de push non-fast-forward et la séquence pull/rebase/push ont été reproduits avec un dépôt distant local. Les commits résultants sont publiés sur le fork : correction README \texttt{8acfdc0}, puis couleur \texttt{1be7e97}. La couleur principale est \texttt{\#1f6f78}.
+Le refus de push non-fast-forward et la séquence pull/rebase/push ont été reproduits avec un dépôt distant local. Les commits résultants sont publiés sur le fork : correction README \texttt{52fe0a0}, puis couleur \texttt{450465b}. La couleur principale est \texttt{\#1f6f78}.
 
 Le serveur refuse le premier push car il contient un commit absent du clone. Après récupération, le rebase place la correction distante avant le commit local ; le push devient alors un fast-forward.
 
@@ -190,12 +190,12 @@ Le serveur refuse le premier push car il contient un commit absent du clone. Apr
 \item \texttt{git log upstream/main..main --oneline} : commits de main absents d'upstream/main.
 \end{itemize}
 
-Un fetch réussi doit précéder l'interprétation de ces listes. La mise à jour \texttt{c923300} a été intégrée par la fusion \texttt{b9c554e}. Après intégration, la première liste est vide.
+Un fetch réussi doit précéder l'interprétation de ces listes. La mise à jour \texttt{c923300} a été intégrée par la fusion \texttt{ea385df}. Après intégration, la première liste est vide.
 
 \textbf{Sync fork.} L'action Update branch de GitHub intègre les changements du dépôt d'origine dans le fork. L'équivalent usuel est : fetch upstream, sélection de main, merge upstream/main, puis push origin main. Une option qui abandonne les commits propres au fork ne correspond pas à cette intégration.
 
 \section*{Exercice 11 -- Tags et push forcé}
-\textbf{Publication d'un tag.} Dans la configuration usuelle, un simple push de branche ne publie pas un nouveau tag annoté. La commande \texttt{git push origin v1.1.0} publie ce tag ; \texttt{git ls-remote --tags origin} permet de le vérifier. Le tag annoté possède son propre objet et une référence déréférencée vers son commit cible, \texttt{2abb834}.
+\textbf{Publication d'un tag.} Dans la configuration usuelle, un simple push de branche ne publie pas un nouveau tag annoté. La commande \texttt{git push origin v1.1.0} publie ce tag ; \texttt{git ls-remote --tags origin} permet de le vérifier. Le tag annoté possède son propre objet et une référence déréférencée vers son commit cible, \texttt{6b418a2}.
 
 \question{Q11.1 -- Pourquoi force-with-lease plutôt que force ?}
 \texttt{--force-with-lease} vérifie que la référence distante correspond à la valeur attendue avant de la remplacer. Il refuse donc l'opération si un changement distant inattendu est détecté. \texttt{--force} n'offre pas cette protection.

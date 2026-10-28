@@ -1,18 +1,19 @@
-* 8482441 (origin/feature/avis, feature/avis) docs: retirer le rapport de la branche avis
-* f10cc53 docs: ajout des avis clients
-| * fc74b74 (HEAD -> main, origin/main, origin/HEAD) docs: retirer le rapport du depot
-| * deb453f docs(tp1): confirmer la publication et les verifications distantes
+* 5fe3165 (HEAD -> main, origin/main, origin/HEAD) docs(tp1): publier le livrable PDF et ses sources LaTeX
+* b235577 docs: retirer le rapport du depot
+* 70bd5dd docs(tp1): confirmer la publication et les verifications distantes
+| * 0377d9d (origin/feature/avis, feature/avis) docs: retirer le rapport de la branche avis
+| * 173d6bd docs: ajout des avis clients
 |/  
-* 2abb834 (tag: v1.1.0) docs(tp1): reponses et bilan des exercices Git
-*   b9c554e Merge upstream/main: integrer la recette QA
+* 6b418a2 (tag: v1.1.0) docs(tp1): reponses et bilan des exercices Git
+*   ea385df Merge upstream/main: integrer la recette QA
 |\  
 | * c923300 (upstream/main) ReadMe Update
-* | 1be7e97 style: changer la couleur principale en bleu canard
-* | 8acfdc0 docs: clarifier la conservation du panier en memoire
-* |   b80adee Merge fix/taux-ramadan: conserver le taux PO de 20 %
+* | 450465b style: changer la couleur principale en bleu canard
+* | 52fe0a0 docs: clarifier la conservation du panier en memoire
+* |   8edf2d4 Merge fix/taux-ramadan: conserver le taux PO de 20 %
 |\ \  
-| * | f6d266d fix(promo): taux Ramadan annonce par le marketing
-* | | b5bbf8a docs(promo): preciser le taux Ramadan valide par la PO
+| * | 383a058 fix(promo): taux Ramadan annonce par le marketing
+* | | 0d91b02 docs(promo): preciser le taux Ramadan valide par la PO
 |/ /  
 * |   09d2a94 Merge branch 'feature/livraison'
 |\ \  
