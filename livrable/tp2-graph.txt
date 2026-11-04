@@ -1,0 +1,77 @@
+*   8c73cf5 (origin/develop, develop) Merge branch 'release/1.1' into develop
+|\  
+| | *   c43230c (HEAD -> main, tag: tp2/v1.1.0, origin/main, origin/HEAD) Merge branch 'release/1.1'
+| | |\  
+| | |/  
+| |/|   
+| * | 3dc6c01 chore(release): préparer ArtiShop 1.1.0
+|/ /  
+* |   ede0a65 merge(develop): conserver les deux codes promo
+|\ \  
+| * \   242e384 Merge branch 'feature/black-friday' into develop
+| |\ \  
+| | * | 2dc93d3 feat(promo): ajouter BLACKFRIDAY30
+* | | |   48b1dd8 Merge branch 'feature/eid' into tp2/eid-integration
+|\ \ \ \  
+| |/ / /  
+|/| | |   
+| * | | 815c8e2 feat(promo): ajouter EID15
+| |/ /  
+* | |   ebd2143 Merge branch 'hotfix/ramadan20' into develop
+|\ \ \  
+| |/ /  
+|/| |   
+| | * 446fb91 (tag: v1.0.1) Merge branch 'hotfix/ramadan20'
+| |/| 
+|/|/  
+| * 6cc3270 fix(cart): refuser la réutilisation d’un code promo
+|/  
+*   21e19be Merge pull request #2 from ZOUHAIRFGRA/feature/search
+|\  
+| * 8f6d757 feat(api): rechercher les produits par nom
+|/  
+*   d912629 Merge pull request #1 from ZOUHAIRFGRA/feature/categories
+|\  
+| * 9520604 fix(api): trier les catégories par ordre alphabétique
+| * a34a2b3 feat(api): exposer la liste des catégories
+|/  
+* 9e6211a fix(products): compléter le catalogue de la partie A
+* 4361716 fix(prodcuts): renumerate products
+* 8e1afb9 second try: adding a product
+* b75a78b ajout
+* ec417c8 add prd
+* 3893537 feat(products): add prod 7
+* 80783b7 Adding a products
+* 06f432f feat(products): add product 7
+* 2106d6f docs(tp1): actualiser et identifier la capture du graphe
+* fb6ea4b docs(tp1): actualiser les references du livrable
+* 153c88f docs(tp1): publier le livrable PDF et ses sources LaTeX
+* 72dc70c docs: retirer le rapport du depot
+* 91010c5 docs(tp1): confirmer la publication et les verifications distantes
+| * d83f1b9 (origin/feature/avis, feature/avis) docs: retirer le rapport de la branche avis
+| * ba48bd0 docs: ajout des avis clients
+|/  
+* f0cc473 (tag: v1.1.0) docs(tp1): reponses et bilan des exercices Git
+*   ea385df Merge upstream/main: integrer la recette QA
+|\  
+| * c923300 (upstream/main) ReadMe Update
+* | 450465b style: changer la couleur principale en bleu canard
+* | 52fe0a0 docs: clarifier la conservation du panier en memoire
+* |   8edf2d4 Merge fix/taux-ramadan: conserver le taux PO de 20 %
+|\ \  
+| * | 383a058 fix(promo): taux Ramadan annonce par le marketing
+* | | 0d91b02 docs(promo): preciser le taux Ramadan valide par la PO
+|/ /  
+* |   09d2a94 Merge branch 'feature/livraison'
+|\ \  
+| * | 080a49c feat(livraison): frais de livraison par ville
+| * | 5333466 (upstream/feature/livraison) feat(livraison): frais de livraison par ville
+| |/  
+* | a09b892 feat(promo): codes promo et poussez. BIENVENUE10 et RAMADAN20
+* | 9a4c713 modif : readme
+* | c442feb add livraison frais
+|/  
+*   c0e265d (upstream/feature/promo) Fusion avec le dépôt GitHub initial
+|\  
+| * 865adb5 Initial commit
+* add0021 premier commit Artishop
