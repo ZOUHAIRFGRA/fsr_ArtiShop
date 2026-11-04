@@ -47,6 +47,12 @@ function createApp() {
     res.json(categories.sort((a, b) => a.localeCompare(b, "fr")));
   });
 
+  // Recherche : /api/products/search?q=tapis
+  app.get("/api/products/search", (req, res) => {
+    const q = String(req.query.q ?? "").toLowerCase();
+    res.json(products.filter((p) => (p.name + " " + p.category).toLowerCase().includes(q)));
+  });
+
   // Fiche produit
   app.get("/api/products/:id", (req, res) => {
     const product = products.find((p) => p.id === Number(req.params.id));
