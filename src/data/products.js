@@ -50,6 +50,14 @@ const products = [
     description: "Savon noir traditionnel à l'huile d'olive et à l'eucalyptus."
   },
   {
+    id: 8,
+    name: "produit rajouté par yassine",
+    category: "generique",
+    price: 0,
+    stock: 1,
+    description: "pas de description"
+  },
+  {
     id: 7,
     name: "Babouches brodées de Fès",
     category: "Maroquinerie",
