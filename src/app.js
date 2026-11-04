@@ -127,6 +127,9 @@ function createApp() {
     if (promoCodes[code] === undefined) {
     return res.status(400).json({ error: "Code promo invalide" });
     }
+    if (appliedCodes.includes(code)) {
+      return res.status(400).json({ error: "Code promo déjà appliqué" });
+    }
     appliedCodes.push(code);
     res.json(cartSummary());
   });
