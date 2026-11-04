@@ -44,7 +44,7 @@ function createApp() {
   // Liste des catégories : /api/categories
   app.get("/api/categories", (req, res) => {
     const categories = [...new Set(products.map((p) => p.category))];
-    res.json(categories);
+    res.json(categories.sort((a, b) => a.localeCompare(b, "fr")));
   });
 
   // Fiche produit
