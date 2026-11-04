@@ -48,7 +48,17 @@ const products = [
     price: 45,
     stock: 50,
     description: "Savon noir traditionnel à l'huile d'olive et à l'eucalyptus."
-  }
+  },
+  {
+    id: 7,
+    name: "Babouches brodées de Fès",
+    category: "Maroquinerie",
+    price: 220,
+    stock: 12,
+    description: "Pouf rond en cuir brodé à la main, livré non rembourré."
+  },
+
+  
 ];
 
 module.exports = products;
