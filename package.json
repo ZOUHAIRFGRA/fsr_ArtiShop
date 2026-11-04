@@ -1,6 +1,6 @@
 {
   "name": "artishop",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "ArtiShop : boutique en ligne de produits artisanaux (projet fil rouge DevOps)",
   "main": "src/server.js",
   "scripts": {
