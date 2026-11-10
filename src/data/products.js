@@ -50,46 +50,37 @@ const products = [
     description: "Savon noir traditionnel à l'huile d'olive et à l'eucalyptus."
   },
   {
-    id: 8,
-    name: "produit rajouté par yassine",
-    category: "generique",
-    price: 0,
-    stock: 1,
-    description: "pas de description"
-  },
-  {
     id: 7,
     name: "Babouches brodées de Fès",
     category: "Maroquinerie",
     price: 220,
     stock: 12,
+    description: "Babouches en cuir brodé à la main."
+  },
+  {
+    id: 8,
+    name: "Pouf en cuir de Marrakech",
+    category: "Maroquinerie",
+    price: 350,
+    stock: 6,
     description: "Pouf rond en cuir brodé à la main, livré non rembourré."
   },
   {
     id: 9,
-    name: "Babouches brodées de Fè",
-    category: "Maroquinerie",
-    price: 220,
-    stock: 12,
-    description: "Pouf rond en cuir brodé à la main, livré non rembourré."
+    name: "Plateau en zellige de Fès",
+    category: "Poterie",
+    price: 280,
+    stock: 4,
+    description: "Plateau artisanal décoré de zellige."
   },
   {
     id: 10,
-    name: "Babouches brodées de Fè",
-    category: "Maroquinerie",
-    price: 220,
-    stock: 12,
-    description: "Pouf rond en cuir brodé à la main, livré non rembourré."
-  }     , {
-    id: 11,
-    name: "Babouches brodées de Fès",
-    category: "Maroquinerie",
-    price: 220,
-    stock: 12,
-    description: "Pouf rond en cuir brodé à la main, livré non rembourré."
-  },
-
-  
+    name: "Tajine décoré de Safi",
+    category: "Poterie",
+    price: 190,
+    stock: 10,
+    description: "Tajine en terre cuite décorée."
+  }
 ];
 
 module.exports = products;
