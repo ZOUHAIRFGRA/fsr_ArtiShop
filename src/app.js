@@ -41,6 +41,12 @@ function createApp() {
     res.json(result);
   });
 
+  // Liste des catégories : /api/categories
+  app.get("/api/categories", (req, res) => {
+    const categories = [...new Set(products.map((p) => p.category))];
+    res.json(categories.sort((a, b) => a.localeCompare(b, "fr")));
+  });
+
   // Fiche produit
   app.get("/api/products/:id", (req, res) => {
     const product = products.find((p) => p.id === Number(req.params.id));
